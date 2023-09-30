@@ -59,7 +59,7 @@ If you want, you can now `ls keys` and you should see two new files with your `N
 
 ### 3. Commit your public key to the repo
 
-`git add keys/${NAME}* && git commit -m "Adding ${NAME} public key" && git push`
+`git add keys/${NAME}.pub && git commit -m "Adding ${NAME} public key" && git push`
 
 ### 4. Get a partner
 
@@ -83,7 +83,7 @@ This will encrypt a file for them that only their private key can decrypt.
 
 Now push it up to the repo:
 
-`git add texts/* && git commit -m "Adding ${PARTNER} encrypted file" && git push`
+`git add texts/lorum_ipsum.txt.${PARTNER}.json && git commit -m "Adding ${PARTNER} encrypted file" && git push`
 
 Once they've done the same, you can now `git pull` to get your own encrypted file.
 
@@ -107,7 +107,7 @@ You should now see a new file encrypted and signed:
 
 Now push it up to the repo:
 
-`git add texts/* && git commit -m "Adding ${PARTNER} encrypted file signed by ${NAME}" && git push`
+`git add texts/lorum_ipsum.txt.${PARTNER}.${NAME}.json && git commit -m "Adding ${PARTNER} encrypted file signed by ${NAME}" && git push`
 
 Once they've done the same, you can now `git pull` to get your own encrypted and signed file.
 
@@ -118,6 +118,10 @@ Once they've done the same, you can now `git pull` to get your own encrypted and
 `node src/index.js decryptFile -k ${NAME} -f texts/lorum_ipsum.txt.${NAME}.${PARTNER}.json`
 
 Notice, this is the same command as the normal decrypt on step 6, the decrypt code sees that the file has a signature and automatically checks the signature before trying to decrypt it.
+
+You should see this additional line:
+
+`[2023-09-30T05:24:35.134Z] [SUCCESS]  Validated Signature`
 
 ### 9. Spot the big gaping security hole in this method
 
