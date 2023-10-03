@@ -43,6 +43,8 @@ If you run a command and don't pass the correct parameters, `Commander` automati
 
 ## Exercise
 
+_Note, you can do this as a solo exercise by opening two terminals to simulate two people.  No need to do the `git commit` commands in this case._
+
 ### 1. Setup your name in the environment
 
 This will allow you to copy/paste all the below commands without having to edit them and put your name in:
