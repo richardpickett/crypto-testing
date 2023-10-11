@@ -82,7 +82,7 @@ export class Codec {
 
   async loadKeyPair(fileBaseName) {
     const promises = [
-      fileExists(`${fileBaseName}.priv`).then((exists) => {
+      fileExists(`${fileBaseName}.pub`).then((exists) => {
         if (!exists) {
           this.publicKey = false;
           return true;
@@ -100,7 +100,7 @@ export class Codec {
           });
         });
       }),
-      fileExists(`${fileBaseName}.pub`).then((exists) => {
+      fileExists(`${fileBaseName}.priv`).then((exists) => {
         if (!exists) {
           this.privateKey = false;
           return true;
