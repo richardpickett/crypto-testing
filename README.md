@@ -4,12 +4,22 @@ This is a quick demonstration of several encryption principles, using nodejs
 
 ## Table of Contents
 
-- [Setup](#Setup)
-- [Important Directories](#Important-Directories)
-- [Commander](#Commander)
-- [Exercise](#Exercise)
-- [The Encrypted File](#The-Encrypted-File)
-- [Bonus Reminder](#Bonus-Reminder)
+    - [Setup](#Setup)
+    - [Important Directories](#Important-Directories)
+    - [Commander](#Commander)
+    - [Exercise](#Exercise)
+    	- [1. Setup your name in the environment](#1.-Setup-your-name-in-the-environment)
+    	- [2. Create your own key pair](#2.-Create-your-own-key-pair)
+    	- [3. Commit your public key to the repo](#3.-Commit-your-public-key-to-the-repo)
+    	- [4. Get a partner](#4.-Get-a-partner)
+    	- [5. Encrypt a file for them](#5.-Encrypt-a-file-for-them)
+    	- [6. Decrypt the file they sent](#6.-Decrypt-the-file-they-sent)
+    	- [7. Encrypt and sign a file to them](#7.-Encrypt-and-sign-a-file-to-them)
+    	- [8. Decrypt and Verify the encrypted and signed file](#8.-Decrypt-and-Verify-the-encrypted-and-signed-file)
+    	- [9. Spot the big gaping security hole in this method](#9.-Spot-the-big-gaping-security-hole-in-this-method)
+    	- [10. Let's see if we can change the signatory to produce a failure](#10.-Let's-see-if-we-can-change-the-signatory-to-produce-a-failure)
+    - [The Encrypted File](#The-Encrypted-File)
+    - [Bonus Reminder](#Bonus-Reminder)
 
 ## Setup
 
