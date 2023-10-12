@@ -6,7 +6,7 @@ import fileExists from "../lib/fileExists.js";
 export default function (program) {
   program
     .command("decryptFile")
-    .requiredOption("-k, --key-file-prefix <prefix>", "The prefix to your privage key file")
+    .requiredOption("-k, --key-file-prefix <prefix>", "The prefix to your privileged key file")
     .requiredOption("-f, --file <fileName>", "The file you will decrypt")
     .action(async (options) => {
       const { name } = parse(options.keyFilePrefix);
