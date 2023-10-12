@@ -180,7 +180,7 @@ In "real life" you'll want to protect your private keys. Besides not sharing the
 
 In an encrypted, unsigned file, you find two fields, `encryptedData` and `encryptedKey`.
 
-With RSA encryption (what's used here, and other algorithms as well) isn't actually used to encrypt the data.
+With CBC encryption (what's used here, and other algorithms as well) the public key isn't actually used to encrypt the data.
 
 The encryption process is two-step.
 
@@ -208,6 +208,22 @@ Do we have to have the `signatory` field? _No._ But it's nice to have. If you do
 
 Did you find the gaping hole in this implementation?
 
-What would you do to resolve it?
+_(Hint: It's the **T** in S.T.R.I.D.E.)_
 
-Hint: It's the **T** in S.T.R.I.D.E.
+If "yes," What would you do to resolve it?
+
+## Terms
+
+Here are some terms that typically come up during this exercise. Please note, this lab only covers the usage of Key Pairs, but with that working knowledge you can understand all the rest of these terms.
+
+- **Key Pair**: A public and private key that are cryptografically related. The public key can be used to encrypt a message that only the owner of the private key can decrypt. Example: Bob publishes his public key so anyone can send him an encrypted message. Sally uses Bob's public key to encrypt a message and posts it publicly. While anyone can download the encrypted message, only Bob can decrypt it.
+
+- **CA**: Certificate Authority. This is a Key Pair that is used to sign other public keys (using the CA's private key) and the signed public keys can be validated before they are used to encrypt messages to that recipient. Example: The CA is managed by Jill. Bob gives Jill his public key for signing. Jill verifies Bob's identity and then cryptographically signs Bob's public key with the CA's private key. Bob publishes that signature along with his public key. Now when Sally wants to encrypt a message to Bob, she can first validate the signature on Bob's public key before using it to encrypt a message to him. She can validate it using the CA's public key, which she received from Jill.
+
+- **PKI**: Public Key Infrastructure. PKI used in a general sense referes to public/private key pairs that are used to encrypt, sign, decrypt, and validate signatures. More specifically it is used to refer to an entire ecosystem a company or system uses to manage it's CAs and all the Key Pairs used by the participants in that system. It's common that multiple CAs are used, where one root CA has a very long life and is used to sign secondary CAs, which are then used to sign the individual Public Keys.
+
+- **PKI Chain / Certificate Chain of Trust**: In a system that uses a root CA which signs secondary CAs, which are then used to sign individual public keys, A public key file will have it's key, the signature of the secondary CA validating that public key, and the root key's signature validating the secondary CA. Publicly used PKI Chains may have more than just these two signatures, and ones used for common tasks (like browsing https URLs) always have a root CA as the final signature.
+
+- **Root CAs**: These are a small set of CAs that are installed with the OS which are from highly-trusted sources. An example CA would be any of the commonly used certificate-signing services like Entrust.
+
+- **PGP**: Pretty Good Privacy. PGP is a network of trust where instead of having a small set of CAs which are trusted to sign certificates, individuals can sign eachother's public keys, with each signature lending more trust to the signed public keys. Example: James knows Bob, so signs his public key. Sally needs to send an encrypted message to Bob, but when she looks on a common list of keys, she sees 3 for Bob. She doesn't know which one is Bob's, but only one is signed by James, and Sally not only knows James but she also trusts him, so she uses the key signed by James when she encrypts the message to Bob.

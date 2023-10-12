@@ -152,7 +152,15 @@ export class Codec {
     /* we create a random key, encrypt the data with this random key, then encrypt the random key with the public key */
     // random key
     const aesKey = crypto.randomBytes(32);
-    // create the cipher and initialize with mode and IV (in real life you'll change this regularly)
+    // create the cipher and initialize with mode and IV
+    /********************************************************************************************
+     * WARNING  WARNING  WARNING  WARNING  WARNING  WARNING  WARNING  WARNING  WARNING  WARNING *
+     * In real life you may start with a different mode and IV and change IV frequently,        *
+     * even when communicating with the same recipient.  For example, in CBC mode, it's changed *
+     * with each message. Connections that do things like rotate IV will have two channels,     *
+     * one channel for data, and another channel to communicate IV rotations (amoungst other    *
+     * things)                                                                                  *
+     ********************************************************************************************/
     const cipher = crypto.createCipheriv("aes-256-cbc", aesKey, Buffer.alloc(16, 0)); // Use the appropriate mode and IV
     // now encrypt the data with the random aes key
     rtn.encryptedData = cipher.update(buffer, "utf8", "base64") + cipher.final("base64");
