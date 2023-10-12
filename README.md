@@ -2,6 +2,15 @@
 
 This is a quick demonstration of several encryption principles, using nodejs
 
+## Table of Contents
+
+- [Setup](#Setup)
+- [Important Directories](#Important Directories)
+- [Commander](#Commander)
+- [Exercise](#Exercise)
+- [The Encrypted File](#The Encrypted File)
+- [Bonus Reminder](#Bonus Reminder)
+
 ## Setup
 
 `nvm install # respect the .nvmrc file`
@@ -43,7 +52,7 @@ If you run a command and don't pass the correct parameters, `Commander` automati
 
 ## Exercise
 
-_Note, you can do this as a solo exercise by opening two terminals to simulate two people.  No need to do the `git commit` commands in this case._
+_Note, you can do this as a solo exercise by opening two terminals to simulate two people. No need to do the `git commit` commands in this case._
 
 ### 1. Setup your name in the environment
 
