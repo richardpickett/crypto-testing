@@ -1,5 +1,5 @@
 {
-  "name": "crypto-testing",
+  "name": "richardpickett/crypto-testing",
   "version": "0.0.0",
   "description": "Simple crypto routine testing and demonstration",
   "main": "src/index.js",
